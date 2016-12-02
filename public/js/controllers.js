@@ -1,6 +1,7 @@
 angular.module("letEmPlayApp").controller("HomeController", ["$scope",  function($scope) {
   $scope.view = {};
- $scope.view.title = "Home Page"
+ $scope.view.title = "Home Page";
+ initMap();
 }])
 .controller("DonateController", ["$scope", function($scope) {
   $scope.view = {};
