@@ -23,6 +23,10 @@ main {
   align-items: center;
 }
 
+.clean-list {
+  list-style: none;
+}
+
 .centerThis {
   display: flex;
   text-align: center;
@@ -73,4 +77,21 @@ main {
 .myJumbo {
   margin: 20px;
   padding: 0px;
+}
+
+.find-list {
+  background-color: rgba(0,0,0,0.2);
+  margin: 10px 5vw;
+  padding: 10px 20px;
+}
+
+.find-item {
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  padding: 20px 10px;
+  margin: 10px 0px;
+}
+
+.find-item h1,h3,h5 {
+  color: white;
 }
