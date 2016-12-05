@@ -15,18 +15,21 @@ angular.module("letEmPlayApp").controller("HomeController", ["$scope",  function
       "donation_id": 1,
       "pieces": [
         {
+          "position": "skater",
           "type": 'shoulder pads',
           "size": 'lg',
           "sex": 'both',
           "brand": 'easton'
         },
         {
+          "position": "skater",
           "type": 'helmet',
           "size": 'lg',
           "sex": 'both',
           "brand": 'messier'
         },
         {
+          "position": "skater",
           "type": 'gloves',
           "size": '16 inch',
           "sex": 'both',
@@ -38,12 +41,14 @@ angular.module("letEmPlayApp").controller("HomeController", ["$scope",  function
       "donation_id": 2,
       "pieces": [
         {
+          "position": "skater",
           "type": 'knee pads',
           "size": '20 inch',
           "sex": 'both',
           "brand": 'bauer'
         },
         {
+          "position": "skater",
           "type": 'stick',
           "size": 'intermediate',
           "flex": 85,
@@ -52,12 +57,14 @@ angular.module("letEmPlayApp").controller("HomeController", ["$scope",  function
           "brand": 'easton'
         },
         {
+          "position": "skater",
           "type": 'elbow pads',
           "size": 'lg',
           "sex": 'both',
           "brand": 'ccm'
         },
         {
+          "position": "skater",
           "type": 'skates',
           "size": '10',
           "sex": 'mens',
@@ -65,12 +72,14 @@ angular.module("letEmPlayApp").controller("HomeController", ["$scope",  function
           "model": 'vapor v'
         },
         {
+          "position": "skater",
           "type": 'breezers',
           "size": 'md',
           "sex": 'both',
           "brand": 'bauer'
         },
         {
+          "position": "skater",
           "type": 'skates',
           "size": '9',
           "sex": 'womens',
@@ -84,18 +93,21 @@ angular.module("letEmPlayApp").controller("HomeController", ["$scope",  function
       "donation_id": 3,
       "pieces": [
         {
+          "position": "skater",
           "type": 'elbow pads',
           "size": 'sm',
           "sex": 'both',
           "brand": 'bauer'
         },
         {
+          "position": "skater",
           "type": 'helmet',
           "size": 'md',
           "sex": 'both',
           "brand": 'easton'
         },
         {
+          "position": "skater",
           "type": 'gloves',
           "size": '14 inch',
           "sex": 'both',
