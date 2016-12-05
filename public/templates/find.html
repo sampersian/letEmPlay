@@ -7,8 +7,8 @@
     <h1>Donation Id  {{ data["donation_id"] }}</h1>
     <ul>
       <li class="clean-list" ng-repeat="piece in data.pieces">
-        <h3> {{ piece.type }} - {{ piece.size }} </h3>
-        <h5>Brand: {{ piece.brand }} Sex: {{ piece.sex }}</h5>
+        <h3> {{ piece.type | uppercase }} - {{ piece.size | uppercase }} </h3>
+        <h5> {{ piece.brand | uppercase }} <span ng-if=" piece.sex !== 'both'"> ({{ piece.sex | uppercase }}) </span> <span ng-if=" piece.sex === 'both'"> ({{ 'mens and womens' | uppercase }}) </span> </h5>
       </li>
     </ul>
   </li>
