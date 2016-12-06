@@ -13,7 +13,7 @@
     <div class="form-group">
       <label>Search: </label>
       <input type="text" class="form-control" ng-model="view.searchValue" placeholder="Search">
-    </div>  
+    </div>
     <div class="form-group">
       <label>Position: </label>
       <select class="mySelect form-control" ng-model="view.searchPosition">
@@ -23,7 +23,8 @@
     </div>
 
   </form>
-  <li class="clean-list find-item" ng-repeat="data in view.items | orderBy: view.searchMethod | filter: {position:view.searchPosition}| filter: view.searchValue">
+  <h4> Showing {{ filtered.length }} Results</h4>
+  <li class="clean-list find-item" ng-repeat="data in view.items | orderBy: view.searchMethod | filter: {position:view.searchPosition}| filter: view.searchValue as filtered">
     <a ng-href="/#/donation/{{data.donation_id}}">
       <h1>Donation Id  {{ data["donation_id"] }} - {{ data["pieces"].length }} items - {{ data["zip"] }}</h1>
       <ul>
