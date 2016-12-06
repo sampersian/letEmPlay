@@ -1,10 +1,21 @@
-<form class="" method="post">
-  <h2>Login Form</h2>
-  <label for="">Username</label>
-  <input type="text" ng-model="view.loginUser">
-
-  <label for="">Password</label>
-  <input type="password" ng-model="view.loginPassword">
-
-  <input type="submit" value="Login">
-</form>
+<main class="myMain">
+  <form class="loginForm" action="/login" method="post">
+    <fieldset>
+      <div class="formTopper">
+        <h3>Login</h3>
+      </div>
+      <hr>
+      <div class="form-group">
+        <label for="inputUsername" class="control-label">Username</label>
+        <input type="text" class="form-control" name="username" placeholder="Username">
+      </div>
+      <div class="form-group">
+        <label for="inputPassword" class="control-label">Password</label>
+        <input type="password" class="form-control" name="password" placeholder="Password">
+      </div>
+      <div class="form-group">
+          <input type="submit" class="form-control btn btn-success" name="submit" value="Submit">
+      </div>
+    </fieldset>
+  </form>
+</main>

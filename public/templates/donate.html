@@ -1,1 +1,83 @@
 <h1>{{ view.title }}</h1>
+
+<main>
+  <form class="donateForm form-horizontal">
+    <h3 class="donateMessage">Add your items below.</h3>
+    <fieldset>
+      <div class="form-group">
+        <label class="col-lg-2 control-label">Zip</label>
+        <div class="col-lg-10">
+          <input type="number" class="form-control" ng-model="view.donation.zip" placeholder="12345">
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label class="col-lg-2 control-label">Position</label>
+        <div class="col-lg-10">
+          <div class="radio">
+            <label>
+              <input type="radio" ng-model="view.donation.position" id="optionsRadios1" value="skater" checked="">
+              Skater
+            </label>
+            <label>
+              <input type="radio" ng-model="view.donation.position" name="optionsRadios" id="optionsRadios2" value="goalie">
+              Goalie
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group" ng-if="view.donation.position === 'skater'">
+        <label for="select" class="col-lg-2 control-label">Selects</label>
+        <div class="col-lg-10">
+          <select class="form-control" id="select">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+          <br>
+          <select multiple="" class="form-control">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group" ng-if="view.donation.position === 'goalie'">
+        <label for="select" class="col-lg-2 control-label">Selects</label>
+        <div class="col-lg-10">
+          <select class="form-control" id="select">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+          <br>
+          <select multiple="" class="form-control">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+          <button type="reset" class="btn btn-default">Cancel</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+
+</main>

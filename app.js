@@ -12,6 +12,7 @@ var flash = require('connect-flash');
 
 var routes = require('./routes/index');
 var login = require('./routes/login')
+var logout = require('./routes/logout')
 var users = require('./routes/users');
 
 var app = express();
@@ -38,23 +39,21 @@ app.use(flash()); // use connect-flash for flash messages stored in session. Thi
 
 app.use('/login', login)
 
+app.use(function(req,res,next){
+    if(req.user){
+      next();
+    }else{
+        res.redirect('/login'); // 401 Not Authorized
+    }
+});
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-app.use(function(req,res,next){
-    if(req.user){
-      next();
-    }else{
-        res.redirect('/#/login'); // 401 Not Authorized
-    }
-});
-
-
-
-
 app.use('/', routes);
+app.use('/logout', logout)
 app.use('/users', users);
 
 // catch 404 and forward to error handler

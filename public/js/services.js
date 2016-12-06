@@ -21,7 +21,8 @@ angular.module("letEmPlayApp").service("donationsService", function() {
             "type": 'gloves',
             "size": '16 inch',
             "sex": 'both',
-            "brand": 'ccm'}
+            "brand": 'ccm',
+            "position": 'skater'}
         ],
         "zip": 55356
       },
@@ -40,6 +41,7 @@ angular.module("letEmPlayApp").service("donationsService", function() {
             "size": 'intermediate',
             "flex": 85,
             "curve": "sakic",
+            "shot": "right",
             "sex": 'both',
             "brand": 'easton'
           },

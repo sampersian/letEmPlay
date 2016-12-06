@@ -1,10 +1,12 @@
+"use strict"
 
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
+// /logout
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+	req.logout();
+	res.redirect('./login');
+})
 
 module.exports = router;

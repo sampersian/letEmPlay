@@ -1,12 +1,9 @@
 <h1>{{ view.title }}</h1>
-<h1>{{ view.searchPosition }}</h1>
-
-<h2>Look below for all the shit you need</h2>
 
 <ul class="find-list">
-  <h1> Here are the current listings of gear. </h1>
-  <form name"newPostForm" class='myForm form-inline' ng-submit="addPost()" ng-init="newPostData = {}">
-    <input type="text" ng-model="view.searchValue" placeholder="Search">
+  <h1 class="find-list-title"> Here are the current listings of gear. </h1>
+  <form name"newPostForm" class='findForm form-inline' ng-submit="addPost()" ng-init="newPostData = {}">
+
     <!-- <h4>Search By</h4> -->
     <!-- <select class="mySelect" ng-model="view.searchMethod" ng-init="view.searchMethod = 'position'">
       <option value="position">Position</option>
@@ -14,8 +11,11 @@
       <option value="sex">Sex</option>
     </select> -->
     <div class="form-group">
-      <label>Position: </Label>
-      <select class="mySelect" ng-model="view.searchPosition">
+      <label>Search: </label>
+      <input type="text" class="form-control" ng-model="view.searchValue" placeholder="Search">
+
+      <label>Position: </label>
+      <select class="mySelect form-control" ng-model="view.searchPosition">
         <option value="skater">Skater</option>
         <option value="goalie">Goalie</option>
       </select>
@@ -24,7 +24,7 @@
   </form>
   <li class="clean-list find-item" ng-repeat="data in view.items | orderBy: view.searchMethod | filter: {position:view.searchPosition}| filter: view.searchValue">
     <a ng-href="/#/donation/{{data.donation_id}}">
-      <h1>Donation Id  {{ data["donation_id"] }}</h1>
+      <h1>Donation Id  {{ data["donation_id"] }} - {{ data["pieces"].length }} items - {{ data["zip"] }}</h1>
       <ul>
         <li class="clean-list" ng-repeat="piece in data.pieces">
           <h3> {{ piece.type | uppercase }} - {{ piece.size | uppercase }} </h3>

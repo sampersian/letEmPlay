@@ -58,10 +58,11 @@ main {
   background-color: rgba(128,128,128,0.5);
   height: 20vh;
   border: 5px solid black;
+  border-radius: 25px;
 }
 
 .side:first-child {
-  margin-right: 10px;
+  margin-right: 40px;
 }
 
 .side:hover {
@@ -92,9 +93,15 @@ main {
 }
 
 .find-list {
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgba(0,0,0,0.75);
   margin: 10px 5vw;
   padding: 10px 20px;
+}
+
+.find-list-title {
+  width: 100%;
+  text-align: center;
+  color: lightblue;
 }
 
 .find-item {
@@ -106,4 +113,21 @@ main {
 
 .find-item h1,h3,h5 {
   color: white;
+}
+
+.donateForm {
+  width: 80%;
+  text-align: center;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  padding: 20px;
+}
+
+.findForm {
+  width: 100%;
+  text-align: center;
+}
+
+.findForm label {
+  color: maroon;
 }
