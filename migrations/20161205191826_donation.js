@@ -2,6 +2,7 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('donation', function(table){
     table.increments('id');
+    table.text('title');
     table.text('position');
     table.integer('zip');
   })

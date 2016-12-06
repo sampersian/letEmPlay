@@ -24,6 +24,7 @@ angular.module("letEmPlayApp").service("donationsService", function() {
             "brand": 'ccm',
             "position": 'skater'}
         ],
+        "title": "A few things for middle/high school players",
         "zip": 55356
       },
       {
@@ -72,6 +73,7 @@ angular.module("letEmPlayApp").service("donationsService", function() {
             "model": "vapor xxxx"
           }
         ],
+        "title": "Almost everything needed for youth boy or girl",
         "zip": 80202
       },
       {
@@ -96,6 +98,7 @@ angular.module("letEmPlayApp").service("donationsService", function() {
             "sex": 'both',
             "brand": 'oakley'}
         ],
+        "title": "Top half except shoulder pads for youth skater",
         "zip": 80202
       }
     ]
