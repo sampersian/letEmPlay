@@ -4,14 +4,7 @@ let userSpot;
 let userLocation, map, truckmap;
 let markersArray = [];
 function initMap() {
-  let lat, lon, maptype, anId;
-  if (document.URL.indexOf("/truck/") > -1) {
-    maptype = "truck";
-    console.log("this is a truck page");
-    anId = document.URL.split("/").reverse()[0]
-  } else {
-    maptype = "main";
-  }
+  let lat, lon, anId;
   navigator.geolocation.getCurrentPosition(function (position) {
       var geocoder = new google.maps.Geocoder();
       var latLng   = new google.maps.LatLng(
@@ -110,4 +103,13 @@ function haversineDistance(coords1, coords2) {
   var d = R * c;
   let distance_between = d /= 1.60934
   return distance_between;
+}
+
+function geoCodeAddress(address){
+     var formattedAddress = address.split(' ').join('+');
+  return $.ajax({
+    url:'https://maps.googleapis.com/maps/api/geocode/json?address='+formattedAddress+'&key=AIzaSyAMCg6786tQQUE9PoC4RNbsRswkyRqBbVg',
+    error: function(err) {console.error(err)},
+    method: 'GET'
+  })
 }
