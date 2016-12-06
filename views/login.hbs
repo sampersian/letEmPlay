@@ -1,21 +1,38 @@
 <main class="myMain">
-  <form class="loginForm" action="/login" method="post">
-    <fieldset>
-      <div class="formTopper">
-        <h3>Login</h3>
-      </div>
-      <hr>
-      <div class="form-group">
-        <label for="inputUsername" class="control-label">Username</label>
-        <input type="text" class="form-control" name="username" placeholder="Username">
-      </div>
-      <div class="form-group">
-        <label for="inputPassword" class="control-label">Password</label>
-        <input type="password" class="form-control" name="password" placeholder="Password">
-      </div>
-      <div class="form-group">
-          <input type="submit" class="form-control btn btn-success" name="submit" value="Submit">
-      </div>
-    </fieldset>
-  </form>
+
+  <div class="loginJumbo">
+
+    <div class="side leftSeventy">
+      <h1 class="whiteHeader">Let Em' Play</h1>
+      <h3 class="blueHeader">Find or Donate Hockey Equipment</h3>
+      <p>
+        Maybe here is a short description about the site.
+      </p>
+      <button type="button" class="btn btn-info" name="button">Join</button>
+    </div>
+
+    <div class="side rightThirty">
+      <form class="loginForm" action="/login" method="post">
+        <fieldset>
+          <div class="formTopper">
+            <h3 class="whiteHeader">Login</h3>
+          </div>
+          <hr>
+          <div class="form-group">
+            <label for="inputUsername" class="control-label">Username</label>
+            <input type="text" class="form-control" name="username" placeholder="Username">
+          </div>
+          <div class="form-group">
+            <label for="inputPassword" class="control-label">Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Password">
+          </div>
+          <div class="form-group">
+              <input type="submit" class="form-control btn btn-success" name="submit" value="Submit">
+          </div>
+        </fieldset>
+      </form>
+    </div>
+
+  </div>
+
 </main>
