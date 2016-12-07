@@ -100,7 +100,30 @@ angular.module("letEmPlayApp").service("donationsService", function($http) {
             "brand": 'oakley'}
         ],
         "title": "Top half except shoulder pads for youth skater",
-        "zip": 80202
+        "zip": 55356
+      },
+      {
+        "donation_id": 4,
+        "position": "goalie",
+        "pieces": [
+          {
+            "type": 'helmet',
+            "size": 'md',
+            "sex": 'both',
+            "brand": 'easton'
+          },
+          {
+            "type": 'stick',
+            "size": 'intermediate',
+            "flex": 85,
+            "curve": "Hasek",
+            "shot": "right",
+            "sex": 'both',
+            "brand": 'easton'
+          }
+        ],
+        "title": "Some goalie stuff for middle or high school player",
+        "zip": 55359
       }
     ]
   }
