@@ -30,7 +30,10 @@
 
       <div class="form-group">
         <label class="col-lg-2 control-label">Items Added: </label>
-        <span ng-repeat="item in view.donation.items">{{item.type}}</span>
+        <span ng-repeat="item in view.donation.items">
+          {{item.type}} ({{item.size[0]}})
+          <button class="btn btn-danger" ng-click="view.removeDonationItem(item)">X</button>
+        </span>
       </div>
 
       <div class="form-group" ng-hide="view.donation.position">
@@ -41,18 +44,18 @@
         <label for="select" class="col-lg-2 control-label">Add Equipment</label>
         <div class="col-lg-10">
           <select class="form-control" ng-model="view.donation.newitem.type">
-            <option value="elbow">Elbow Pads</option>
-            <option value="gloves">Gloves</option>
-            <option value="helmet">Helmet</option>
-            <option value="pants">Hockey Pants / Breezers</option>
-            <option value="skates">Skates</option>
-            <option value="shins">Shin Pads</option>
-            <option value="shoulders">Shoulder Pads</option>
-            <option value="socks">Socks</option>
-            <option value="stick">Stick</option>
+            <option value="Elbow Pads">Elbow Pads</option>
+            <option value="Gloves">Gloves</option>
+            <option value="Helmet">Helmet</option>
+            <option value="Pants">Hockey Pants / Breezers</option>
+            <option value="Skates">Skates</option>
+            <option value="Shin Pads">Shin Pads</option>
+            <option value="Shoulders">Shoulder Pads</option>
+            <option value="Socks">Socks</option>
+            <option value="Stick">Stick</option>
           </select>
           <br>
-          <select multiple="" ng-model="view.donation.newitem.size" ng-hide="view.donation.newitem.type === 'stick'" class="form-control">
+          <select multiple="" ng-model="view.donation.newitem.size" ng-if="view.donation.newitem.type" ng-hide="view.donation.newitem.type === 'Stick' || view.donation.newitem.type === 'Skates'" class="form-control">
             <option>Youth Extra-small</option>
             <option>Youth Small</option>
             <option>Youth Medium</option>
@@ -65,13 +68,35 @@
             <option>Adult Extra-large</option>
           </select>
 
+          <select multiple="" ng-model="view.donation.newitem.size" ng-if="view.donation.newitem.type" ng-show="view.donation.newitem.type === 'Skates'" class="form-control">
+            <option>6</option>
+            <option>6.5</option>
+            <option>7</option>
+            <option>7.5</option>
+            <option>8</option>
+            <option>8.5</option>
+            <option>9</option>
+            <option>9.5</option>
+            <option>10</option>
+            <option>10.5</option>
+            <option>11</option>
+            <option>11.5</option>
+            <option>12</option>
+            <option>12.5</option>
+            <option>13</option>
+            <option>13.5</option>
+          </select>
 
-          <select multiple="" ng-model="view.donation.newitem.size" ng-show="view.donation.newitem.type === 'stick'" class="form-control">
+          <select multiple="" ng-model="view.donation.newitem.size" ng-if="view.donation.newitem.type" ng-show="view.donation.newitem.type === 'Stick'" class="form-control">
             <option>Kids</option>
             <option>Junior</option>
             <option>Intermediate</option>
             <option>Senior</option>
           </select>
+        </div>
+
+        <div class="form-group">
+          <button type="button" ng-click="view.newDonationItem()" class='btn btn-info' name="button">Add Item</button>
         </div>
       </div>
 
@@ -94,11 +119,13 @@
             <option>5</option>
           </select>
         </div>
+
+        <div class="form-group">
+          <button type="button" ng-click="view.newDonationItem()" class='btn btn-info' name="button">Add Item</button>
+        </div>
       </div>
 
-      <div class="form-group">
-        <button type="button" ng-click="view.newDonationItem()" class='btn btn-info' name="button">Add Item</button>
-      </div>
+
 
       <div class="form-group">
         <div class="col-lg-10 col-lg-offset-2">

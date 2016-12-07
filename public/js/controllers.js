@@ -1,18 +1,31 @@
 angular.module("letEmPlayApp")
-.controller("HomeController", ["$scope", "$rootScope", "$location", function($scope, $rootScope, $location) {
+.controller("HomeController", ["$scope", "$rootScope", "$http", "donationsService", "$location", function($scope, $rootScope, $http, donationsService, $location) {
   $scope.view = {};
  $scope.view.title = "Home Page";
  $rootScope.searchDonations = function() {
-   alert("hgell")
    console.log("going to "+'/find/'+$rootScope.searchMethod+'/'+$rootScope.searchValue);
    $location.path('/find/'+$rootScope.searchMethod+'/'+$rootScope.searchValue);
-};
-$scope.view.tryLogin = function() {
-  alert("Hello");
-  console.log("Trying to log in the user "+$scope.view.loginUser+" with the password of "+$scope.view.loginPassword);
-  return false;
-}
- initMap();
+  };
+  $scope.view.tryLogin = function() {
+    console.log("Trying to log in the user "+$scope.view.loginUser+" with the password of "+$scope.view.loginPassword);
+    return false;
+  }
+  initMap();
+  $scope.view.donations = donationsService['items'];
+  $scope.view.locations = [];
+  for (let d in $scope.view.donations) {
+    var formattedAddress = String($scope.view.donations[d].zip).split(' ').join('+');
+    $http.get('https://maps.googleapis.com/maps/api/geocode/json?address='+formattedAddress+'&key=AIzaSyAMCg6786tQQUE9PoC4RNbsRswkyRqBbVg')
+    .then((data) => {
+      $scope.view.donations[d].geoLocation = data.data.results[0].geometry.location;
+      console.log($scope.view.donations[d].geoLocation);
+    })
+    .then(() => {
+      console.log($scope.view.donations[d]);
+      console.log("trying to create marker");
+      addMarker($scope.view.donations[d].geolocation);
+    })
+  }
 }])
 .controller("DonateController", ["$scope", function($scope) {
   $scope.view = {};
@@ -21,11 +34,15 @@ $scope.view.tryLogin = function() {
   $scope.view.donation.items = [];
   $scope.view.donation.newitem = {};
   $scope.view.newDonationItem = function()  {
-    $scope.view.donation.newitem.type = "a type";
-      alert("Trying to add a new item with a type of "+$scope.view.donation.newitem.type);
+    if (!$scope.view.donation.newitem.type || !$scope.view.donation.newitem.size) return false;
     $scope.view.donation.items.push($scope.view.donation.newitem);
     $scope.view.donation.newitem = {};
     console.log($scope.view.donation);
+  }
+  $scope.view.removeDonationItem = function(item) {
+    var index = $scope.view.donation.items.indexOf(item);
+    $scope.view.donation.items.splice(index, 1); 
+    console.log(item);
   }
 }])
 .controller("DonationController", ["$scope", "donationsService", "$routeParams", function($scope, donationsService, $routeParams) {

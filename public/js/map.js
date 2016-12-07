@@ -21,11 +21,11 @@ function initMap() {
         scrollwheel: false,
         zoom: 10
       });
-      // var marker = new google.maps.Marker({
-      //   map: map,
-      //   position: myLatLng,
-      //   title: 'You are here!'
-      // });
+      var marker = new google.maps.Marker({
+        map: map,
+        position: myLatLng,
+        title: 'You are here!'
+      });
       // if (maptype === "main") {
       //   $.get('https://hipfoodtrucks.herokuapp.com/today/locations')
       //   // $.get('http://localhost:3000/today/locations')
@@ -107,9 +107,19 @@ function haversineDistance(coords1, coords2) {
 
 function geoCodeAddress(address){
      var formattedAddress = address.split(' ').join('+');
-  return $.ajax({
+  return $http.get({
     url:'https://maps.googleapis.com/maps/api/geocode/json?address='+formattedAddress+'&key=AIzaSyAMCg6786tQQUE9PoC4RNbsRswkyRqBbVg',
     error: function(err) {console.error(err)},
     method: 'GET'
   })
+}
+
+function addMarker(location) {
+  var newMarker = new google.maps.Marker({
+    map: map,
+    position: location,
+    title: "gear"
+  });
+  console.log(map, newMarker);
+  newMarker.setMap(map);
 }
