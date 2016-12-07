@@ -17,6 +17,16 @@ $scope.view.tryLogin = function() {
 .controller("DonateController", ["$scope", function($scope) {
   $scope.view = {};
   $scope.view.title = "Donate Page"
+  $scope.view.donation = {};
+  $scope.view.donation.items = [];
+  $scope.view.donation.newitem = {};
+  $scope.view.newDonationItem = function()  {
+    $scope.view.donation.newitem.type = "a type";
+      alert("Trying to add a new item with a type of "+$scope.view.donation.newitem.type);
+    $scope.view.donation.items.push($scope.view.donation.newitem);
+    $scope.view.donation.newitem = {};
+    console.log($scope.view.donation);
+  }
 }])
 .controller("DonationController", ["$scope", "donationsService", "$routeParams", function($scope, donationsService, $routeParams) {
   $scope.view = {};

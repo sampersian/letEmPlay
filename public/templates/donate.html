@@ -7,7 +7,7 @@
       <div class="form-group">
         <label class="col-lg-2 control-label">Zip</label>
         <div class="col-lg-10">
-          <input type="number" class="form-control" ng-model="view.donation.zip" placeholder="12345">
+          <input type="number" class="form-control" ng-model="view.donation.zip" placeholder="12345" required>
         </div>
       </div>
 
@@ -28,23 +28,49 @@
         </div>
       </div>
 
+      <div class="form-group">
+        <label class="col-lg-2 control-label">Items Added: </label>
+        <span ng-repeat="item in view.donation.items">{{item.type}}</span>
+      </div>
+
+      <div class="form-group" ng-hide="view.donation.position">
+        <h3>Please select a position</h3>
+      </div>
+
       <div class="form-group" ng-if="view.donation.position === 'skater'">
-        <label for="select" class="col-lg-2 control-label">Selects</label>
+        <label for="select" class="col-lg-2 control-label">Add Equipment</label>
         <div class="col-lg-10">
-          <select class="form-control" id="select">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+          <select class="form-control" ng-model="view.donation.newitem.type">
+            <option value="elbow">Elbow Pads</option>
+            <option value="gloves">Gloves</option>
+            <option value="helmet">Helmet</option>
+            <option value="pants">Hockey Pants / Breezers</option>
+            <option value="skates">Skates</option>
+            <option value="shins">Shin Pads</option>
+            <option value="shoulders">Shoulder Pads</option>
+            <option value="socks">Socks</option>
+            <option value="stick">Stick</option>
           </select>
           <br>
-          <select multiple="" class="form-control">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+          <select multiple="" ng-model="view.donation.newitem.size" ng-hide="view.donation.newitem.type === 'stick'" class="form-control">
+            <option>Youth Extra-small</option>
+            <option>Youth Small</option>
+            <option>Youth Medium</option>
+            <option>Youth Large</option>
+            <option>Youth Extra-large</option>
+            <option>Adult Extra-small</option>
+            <option>Adult Small</option>
+            <option>Adult Medium</option>
+            <option>Adult Large</option>
+            <option>Adult Extra-large</option>
+          </select>
+
+
+          <select multiple="" ng-model="view.donation.newitem.size" ng-show="view.donation.newitem.type === 'stick'" class="form-control">
+            <option>Kids</option>
+            <option>Junior</option>
+            <option>Intermediate</option>
+            <option>Senior</option>
           </select>
         </div>
       </div>
@@ -68,6 +94,10 @@
             <option>5</option>
           </select>
         </div>
+      </div>
+
+      <div class="form-group">
+        <button type="button" ng-click="view.newDonationItem()" class='btn btn-info' name="button">Add Item</button>
       </div>
 
       <div class="form-group">
