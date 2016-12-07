@@ -1,7 +1,7 @@
 <h1>{{ view.title }}</h1>
 
 <main>
-  <form class="donateForm form-horizontal">
+  <form class="donateForm form-horizontal" ng-if="view.isSubmitted === 'no'">
     <h3 class="donateMessage">Add your items below.</h3>
     <fieldset>
       <div class="form-group">
@@ -130,11 +130,15 @@
       <div class="form-group">
         <div class="col-lg-10 col-lg-offset-2">
           <button type="reset" class="btn btn-default">Cancel</button>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="button" class="btn btn-primary" ng-click="view.submitDonation()">Submit</button>
         </div>
       </div>
 
     </fieldset>
   </form>
+
+  <div class="submittedBox" ng-if="view.isSubmitted === 'yes'">
+    <h1 class="submittedMessage">Thank you for submitting your donation!</h1>
+  </div>
 
 </main>

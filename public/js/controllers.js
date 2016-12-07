@@ -29,6 +29,7 @@ angular.module("letEmPlayApp")
 }])
 .controller("DonateController", ["$scope", function($scope) {
   $scope.view = {};
+  $scope.view.isSubmitted = "no";
   $scope.view.title = "Donate Page"
   $scope.view.donation = {};
   $scope.view.donation.items = [];
@@ -41,8 +42,12 @@ angular.module("letEmPlayApp")
   }
   $scope.view.removeDonationItem = function(item) {
     var index = $scope.view.donation.items.indexOf(item);
-    $scope.view.donation.items.splice(index, 1); 
+    $scope.view.donation.items.splice(index, 1);
     console.log(item);
+  }
+  $scope.view.submitDonation = function() {
+    if (!$scope.view.donation.zip || !$scope.view.donation.position) return false;
+    $scope.view.isSubmitted = "yes";
   }
 }])
 .controller("DonationController", ["$scope", "donationsService", "$routeParams", function($scope, donationsService, $routeParams) {
