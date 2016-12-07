@@ -44,6 +44,8 @@ $scope.view.tryLogin = function() {
   $scope.view = {};
   $scope.view.title = "Find Page";
   $scope.view.items = donationsService['items'];
+  console.log("items: ");
+  console.log($scope.view.items);
   $scope.view.searchPosition = $location.search()['searchMethod'];
   console.log($location.search());
   if ($routeParams.method !== "undefined") {

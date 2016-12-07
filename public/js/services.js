@@ -1,4 +1,5 @@
-angular.module("letEmPlayApp").service("donationsService", function() {
+angular.module("letEmPlayApp").service("donationsService", function($http) {
+  let donations = []
   return {
     items: [
       {
@@ -103,4 +104,7 @@ angular.module("letEmPlayApp").service("donationsService", function() {
       }
     ]
   }
+  // return {
+  //   items: $http.get('/api/donations/all')
+  // }
 })
