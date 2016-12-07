@@ -184,3 +184,9 @@ main {
 .submittedMessage {
   color: navy;
 }
+
+.centerWhite {
+  width: 100%;
+  text-align: center;
+  color: white;
+}

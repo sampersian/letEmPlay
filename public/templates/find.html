@@ -1,5 +1,3 @@
-<h1>{{ view.title }}</h1>
-
 <div class="top-box">
   <h1 class="find-list-title"> Here are the current listings of gear. </h1>
   <form name"newPostForm" class='findForm form-inline' ng-submit="addPost()" ng-init="newPostData = {}">
@@ -29,7 +27,7 @@
   <h4 class="find-results"> Showing {{ filtered.length }} Results</h4>
   <li class="clean-list find-item" ng-repeat="data in view.items | orderBy: view.searchMethod | filter: {position:view.searchPosition}| filter: view.searchValue as filtered">
     <a class="donation-link" ng-href="/#/donation/{{data.donation_id}}">
-      <h1 class="donation-title">{{ data["title"] }} ({{ data["zip"] }})</h1>
+      <h1 class="donation-title">{{ data["title"] }} ({{ data["zip"] }}) - {{data["position"] | uppercase}}</h1>
       <ul class="donation-items">
         <li class="clean-list" ng-repeat="piece in data.pieces">
           <h3> {{ piece.type | uppercase }} - {{ piece.size | uppercase }} </h3>
