@@ -3,8 +3,9 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTable('donation', function(table){
     table.increments('id');
     table.text('title');
-    table.text('position');
-    table.integer('zip');
+    table.text('address');
+    table.text('email');
+    table.text('phone');
   })
 };
 

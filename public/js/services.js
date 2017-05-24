@@ -1,4 +1,4 @@
-angular.module("letEmPlayApp").service("donationsService", function($http) {
+angular.module("letEmPlayApp").factory("donationsService", function($http) {
   let donations = []
   return {
     items: [
@@ -127,7 +127,31 @@ angular.module("letEmPlayApp").service("donationsService", function($http) {
       }
     ]
   }
+
+  // 2
+  // let donationService = {};
+  // donationService.donations = {};
+  // donationService.getDonations = function() {
+  //   $http.get('/api/donations/all')
+  //     .success(function(data) {
+  //       donationService.donations = data;
+  //     });
+  //
+  //     return donationService.donations;
+  // };
+  //
+  // return donationService;
+
+  // 1
   // return {
   //   items: $http.get('/api/donations/all')
+  //   .success(function(data) {
+  //     donationService.donations
+  //   })
   // }
 })
+
+// 2
+// function NavigationCntrl($scope, $http, donationService) {
+//   $scope.items = donationService.getDonations();
+// }
